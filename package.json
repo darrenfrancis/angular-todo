@@ -1,0 +1,24 @@
+{
+  "name": "angular-todo",
+  "version": "1.0.0",
+  "description": "angular todo package",
+  "main": "index.js",
+  "scripts": {
+    "test": "todo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darrenfrancis/angular-todo.git"
+  },
+  "keywords": [
+    "to",
+    "do",
+    "angularjs"
+  ],
+  "author": "darrenfrancis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darrenfrancis/angular-todo/issues"
+  },
+  "homepage": "https://github.com/darrenfrancis/angular-todo#readme"
+}
