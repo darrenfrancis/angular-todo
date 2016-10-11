@@ -41,7 +41,7 @@ angular.module('RouteController', [])
  
         $scope.todos = {};
  
-        TodoAPIService.getTodos(URL + "accounts/todo/", $scope.username, $scope.authToken).then(function(results) {
+        TodoAPIService.getTodos(URL + "todo/", $scope.username, $scope.authToken).then(function(results) {
             $scope.todos = results.data;
             console.log($scope.todos);
         }).catch(function(err) {
@@ -53,7 +53,7 @@ angular.module('RouteController', [])
                 $scope.todo.username = $scope.username;
                 $scope.todos.push($scope.todo);
  
-                TodoAPIService.createTodo(URL + "accounts/todo/", $scope.todo, $scope.authToken).then(function(results) {
+                TodoAPIService.createTodo(URL + "todo/", $scope.todo, $scope.authToken).then(function(results) {
                     console.log(results)
                 }).catch(function(err) {
                     console.log(err)
