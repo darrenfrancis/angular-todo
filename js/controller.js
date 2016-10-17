@@ -122,14 +122,23 @@ angular.module('RouteController', [])
             if($scope.todoForm.$valid) {
                 $scope.todo.username = $scope.username;
 
-                TodoAPIService.editTodo(URL + "todo/" + id, $scope.todo, store.get('authToken')).then (function(results) {
+                TodoAPIService.editTodo(URL + "todo/" + id, $scope.todo, store.get('authToken')).then(function(results) {
                     $location.path("/todo");
                 }).catch(function(err) {
                     console.log(err);
                 })
             }
         }
-    });
+    })
+
+    .controller('LogoutController', function($scope, store) {
+        $scope.logoutUser = {};
+
+        $scope.ngClick = function() {
+            store.remove('username');
+            store.remove('authToken');
+        }
+    })
 
 
 

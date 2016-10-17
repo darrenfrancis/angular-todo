@@ -27,5 +27,10 @@ angular.module('TodoApp').config(function($routeProvider) {
 		controller: 'EditTodoController'
 	})
 
+	.when('/logout', {
+		templateUrl: 'templates/logout.html',
+		controller: 'LogoutController'
+	})
+
 
 });
