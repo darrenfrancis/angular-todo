@@ -20,13 +20,15 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#/">Angular Todo</a>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/">Home</a></li>
-                <li><a href="#/todo">Todo</a></li>
-                <li><a href="#/login">Login</a></li>
-                <li><a href="#/accounts/register">Account</a></li>
-                <li><a href="#/logout" ngClick>Logout</a></li>
-            </ul>
+            <div>
+                <ul ng-init="isLoggedIn" class="nav navbar-nav navbar-right">
+                    <li><a href="#/">Home</a></li>
+                    <li><a href="#/todo">Todo</a></li>
+                    <li ><a href="#/accounts/register">Account</a></li>
+                    <li ng-if="isLoggedIn === true"><a href="#/logout">Logout</a></li>
+                    <li ng-if-"isloggedin === false "><a href="#/login">Login</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     <div ng-view>

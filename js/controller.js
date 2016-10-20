@@ -1,10 +1,15 @@
 angular.module('RouteController', [])
-    .controller('HomeController', function($scope) {
+    .controller('HomeController', function($scope, store) {
         $scope.title = "Welcome To Angular Todo!";
-    })
-    .controller('RegisterController', function($scope, UserAPIService, store) {
 
-    	$scope.registrationUser = {};
+    })
+    .controller('RegisterController', function($scope, $location, UserAPIService, store) {
+
+        if (store.get('authToken')) {
+            $location.path("/todo");
+        }
+
+    	$scope.registrationUser = {}; // Initializing registrationUser
     	var url = "https://morning-castle-91468.herokuapp.com/";
 
     	$scope.submitForm= function() {
@@ -33,8 +38,12 @@ angular.module('RouteController', [])
 
     })
 
-    .controller('LoginController', function($scope, UserAPIService, store) {
+    .controller('LoginController', function($scope, $location, UserAPIService, store) {
         
+         if (store.get('authToken')) {
+            $location.path("/todo");
+        }
+
         $scope.loginUser = {};
         var url = "https://morning-castle-91468.herokuapp.com/";
 
@@ -67,11 +76,19 @@ angular.module('RouteController', [])
 
     })
 
-    .controller('TodoController', function($scope, $location, TodoAPIService, store) {
+    .controller('TodoController', function($scope, $location, TodoAPIService, store, $rootScope) {
+        /*if (!store.get('authToken')) {
+            $location.path("/accounts/register");
+        }*/
+
+
+
         var URL = "https://morning-castle-91468.herokuapp.com/";
  
         $scope.authToken = store.get('authToken');
         $scope.username = store.get('username');
+
+        
  
         $scope.todos = {};
  
@@ -106,6 +123,17 @@ angular.module('RouteController', [])
                 console.log(err);
             });
         };
+
+
+
+        if (store.get('authToken')) {
+                $rootScope.isLoggedIn = true
+                console.log(store.get('authToken'))
+        } else {
+                $rootScope.isLoggedIn = false
+                console.log(store.get('authToken'))
+        }
+        console.log($scope.isLoggedIn)
     })
 
     .controller('EditTodoController', function($scope, $location, $routeParams, TodoAPIService, store) {
@@ -132,13 +160,28 @@ angular.module('RouteController', [])
     })
 
     .controller('LogoutController', function($scope, store) {
-        $scope.logoutUser = {};
-
-        $scope.ngClick = function() {
-            store.remove('username');
-            store.remove('authToken');
-        }
+        store.remove('username');
+        store.remove('authToken');
     })
+
+
+    /*.controller('LoginCheck', function($scope, store) {
+        
+        $scope.isLoggedIn = function() {
+            if (store.get('authToken')) {
+                return true;
+            } else {
+                return false;
+            }
+
+            }
+            */
+
+
+
+
+
+
 
 
 
