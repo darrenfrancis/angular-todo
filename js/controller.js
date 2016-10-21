@@ -77,9 +77,9 @@ angular.module('RouteController', [])
     })
 
     .controller('TodoController', function($scope, $location, TodoAPIService, store, $rootScope) {
-        /*if (!store.get('authToken')) {
+        if (!store.get('authToken')) {
             $location.path("/accounts/register");
-        }*/
+        }
 
 
 
@@ -109,6 +109,7 @@ angular.module('RouteController', [])
                 }).catch(function(err) {
                     console.log(err)
                 });
+                $('#todo-modal').modal('hide');
             }
         }
 
@@ -165,17 +166,7 @@ angular.module('RouteController', [])
     })
 
 
-    /*.controller('LoginCheck', function($scope, store) {
-        
-        $scope.isLoggedIn = function() {
-            if (store.get('authToken')) {
-                return true;
-            } else {
-                return false;
-            }
-
-            }
-            */
+  
 
 
 

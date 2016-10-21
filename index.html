@@ -15,22 +15,9 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#/">Angular Todo</a>
-            </div>
-            <div>
-                <ul ng-init="isLoggedIn" class="nav navbar-nav navbar-right">
-                    <li><a href="#/">Home</a></li>
-                    <li><a href="#/todo">Todo</a></li>
-                    <li ><a href="#/accounts/register">Account</a></li>
-                    <li ng-if="isLoggedIn === true"><a href="#/logout">Logout</a></li>
-                    <li ng-if-"isloggedin === false "><a href="#/login">Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div nav-bar>
+    </div>
+
     <div ng-view>
  
     </div>

@@ -1,4 +1,4 @@
-angular.module('TodoApp', ['ngRoute', 'RouteController', 'UserService', 'angular-storage', 'TodoService','TodoDirective']);
+angular.module('TodoApp', ['ngRoute', 'RouteController', 'UserService', 'angular-storage', 'TodoService','TodoDirective', 'NavDirective',]);
 
 angular.module('TodoApp').config(function($routeProvider) {
 
